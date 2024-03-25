@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jan Petrlík - 3D Printing Services</title>
+  <link rel="icon" href="./images/favicon.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="./images/favicon.ico" type="image/x-icon">  
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1882135509582300"
+     crossorigin="anonymous"></script>
+  <link href="styles.css" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <div class="header-container">
+        <div class="logo-container">
+            <a href="https://pwnbyte.cloud"><img src="./images/printa_logo.png" alt="Logo"></a>
+        </div>
+        <nav>
+            <a href="./index.html">HOME</a>
+            <a href="./services.html">SERVICES</a>
+            <a href="./about.html">ABOUT</a>
+        </nav>
+    </div>
+</header>
+
+
+  <div class="container" style="margin-top: 40px;">
+    <section id="home">
+      <h2>Welcome to our 3D Printing Services</h2>
+      <p>We offer high-quality 3D printing services for your needs.</p>
+    </section>
+
+    <section id="services" style="margin-top: 40px;">
+      <h2>Our Services</h2>
+      <div class="services">
+        <div>
+          <h3>Custom 3D Printing</h3>
+          <p>We provide custom 3D printing solutions tailored to your requirements.</p>
+        </div>
+        <div>
+          <h3>Prototyping</h3>
+          <p>Get accurate prototypes using our advanced 3D printing technology.</p>
+        </div>
+        <div>
+          <h3>Consultation</h3>
+          <p>Consult with our experts for your 3D printing projects.</p>
+        </div>
+      </div>
+    </section>
+
+    <div style="margin-top: 20px;">
+      <img src="./images/3d_print.png" width="600px" height=auto style="border-radius: 5%;">
+    </div>
+
+    <section id="contact">
+      <br>
+      <h2>Contact Us</h2>
+      <p>For inquiries or to get started with your project, reach out to us:</p>
+      <p>Email: printa@email.com</p>
+      <footer>
+        &copy; 2023 Jan Petrlík - Printa 3D Printing Services
+      </footer>
+    </section>
+
+    <div id="contact-container" style="margin-top: 10px;">
+      <h4 id="contact-title">Too lazy to reach out to us directly? Put your email here and we will get back to you within 5 business months</h2>
+      <form action="#" method="post">
+          <div class="form-group">
+              <label for="email" class="form-label">Email:</label>
+              <input type="email" id="email-input" name="email" placeholder="Enter your email" required>
+          </div>
+          <div class="form-group">
+              <input type="submit" id="submit-button" value="Submit">
+          </div>
+      </form>
+  </div>
+
+  <div class="logo-container2">
+    <img src="./images/printa_logo.png" alt="my logo :3" class="logo2">
+  </div>
+
+  <script>
+    // JavaScript picoviny idk
+    // tohle jsem ukradl na nějakej alert, asi to funguje
+    document.addEventListener("DOMContentLoaded", function() {
+        document.querySelector("form").addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevents the default form submission behavior
+            setTimeout(function() {
+                alert("Request sent!"); // Shows an alert after a delay
+                window.location.reload(); // Refreshes the webpage
+            }, 1000); // Adjust the delay time in milliseconds (here, it's set to 1 second)
+        });
+    });
+  </script>
+</body>
+</html>
