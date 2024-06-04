@@ -228,6 +228,15 @@
   color: var(--bila);
 }
 
+#confirm-email-input {
+  width: calc(100% - 22px);
+  padding: 10px;
+  border: 1px solid #777;
+  border-radius: 5px;
+  background-color: #555;
+  color: var(--bila);
+}
+
 #submit-button {
   background-color: var(--modra);
   color: var(--bila);

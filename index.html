@@ -64,11 +64,19 @@
 
     <div id="contact-container" class="contact-container">
       <h4 id="contact-title">Too lazy to reach out to us directly? Put your email here and we will get back to you within 5 business months</h2>
-      <form action="#" method="post">
+        <form action="#" method="post" onsubmit="return validateForm()">
           <div class="form-group">
               <label for="email" class="form-label">Email:</label>
               <input type="email" id="email-input" name="email" placeholder="Enter your email" required>
           </div>
+          <div class="form-group">
+              <label for="confirm-email" class="form-label">Confirm Email:</label>
+              <input type="email" id="confirm-email-input" name="confirm_email" placeholder="Re-enter your email" required>
+          </div>
+          <div class="form-group">
+              <input type="checkbox" id="privacy-policy-checkbox" name="privacy_policy" required>
+              <label for="privacy-policy-checkbox">I agree to the Privacy Policy. (Please steal all of my data!)</label>
+          </div>      
           <div class="form-group">
               <input type="submit" id="submit-button" value="Submit">
           </div>
@@ -82,14 +90,26 @@
   <script>
     // [INTERNET] tohle jsem ukradl na nějakej alert, asi to funguje
     document.addEventListener("DOMContentLoaded", function() {
-        document.querySelector("form").addEventListener("submit", function(event) {
-            event.preventDefault(); // Prevents the default form submission behavior
-            setTimeout(function() {
-                alert("Email sent!"); // Shows an alert after a delay
-                window.location.reload(); // Refreshes the webpage
-            }, 1000); // Adjust the delay time in milliseconds (here, it's set to 1 second)
-        });
+    document.querySelector("form").addEventListener("submit", function(event) {
+        event.preventDefault(); // Prevents the default form submission behavior
+        
+        // Email validation
+        var email = document.getElementById("email-input").value;
+        var confirmEmail = document.getElementById("confirm-email-input").value;
+        
+        if (email !== confirmEmail) {
+            alert("Emails do not match!");
+            return;
+        }
+        
+        // Simulate sending email
+        setTimeout(function() {
+            alert("Email sent!"); // Shows an alert after a delay
+            window.location.reload(); // Refreshes the webpage
+        }, 1000); // Adjust the delay time in milliseconds (here, it's set to 1 second)
     });
+});
+
   </script>
 </body>
 </html>
