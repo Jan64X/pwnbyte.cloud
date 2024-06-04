@@ -1,21 +1,36 @@
-    /* Resetting default styles */
+/* proměnné na barvy */
+:root {
+  --modra: #007bff;
+  --seda: #3f3f3f;
+  --tmave-seda: #333;
+  --tmavejsi-seda: #2b2b2b;
+  --seda-2x: #222222;
+  --cerna: #000000;
+  --bila: #eee;
+}
+
+/* default styly reset aby nebyl konflikt */
     body, h1, h2, h3, p, ul {
         margin: 0;
         padding: 0;
       }
   
+      /* převážně prvky na vzhled */
       body {
         font-family: Arial, sans-serif;
         line-height: 1.6;
-        background-color: #333; /* Dark background */
-        color: #eee; /* Light text */
+        background: linear-gradient(to bottom, #333 0%, #3a3a3a 25%, #2e2e2e 75%, #2b2b2b 100%); /* gradient */
+        color: var(--bila);
         margin: 0;
-        padding-bottom: 60px; /* Adjust padding-bottom to accommodate the fixed footer */
+        padding-bottom: 60px;
+        background-attachment: fixed;
+        height: 100vh;
+        z-index: -4;
       }
   
       header {
-        background-color: #586c91;
-        color: white;
+        background-color: var(--seda);
+        color: var(--bila);
         padding: 0px 0;
         text-align: center;
       }
@@ -45,7 +60,7 @@
   
       nav ul li a {
         text-decoration: none;
-        color: white;
+        color: var(--bila);
         font-weight: bold;
         text-transform: uppercase;
         transition: color 0.3s ease;
@@ -61,20 +76,34 @@
         text-align: center;
       }
   
-      .services {
+    .services {
     display: flex;
     justify-content: space-between;
-  }
+    gap: 10px;
+    }
+
+    .services2 {
+      margin-top: 40px;
+    }
   
   .service {
-    width: 18%; /* šířka jak debil */
-    background-color: #f0f0f0;
+    width: 18%; /* šířka jak nevímco */
+    background-color: var(--bila);
     padding: 20px;
     margin: 5px;
     text-align: center;
   }
   
-  /* mobilní zařízení (ty ještě někdo používá na web když nemají adblock?) */
+  /* na absolutně pozicovaný logo ??? */
+  .logo-container2 {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    margin: 20px; 
+    margin-bottom: 30px;
+  }
+  
+  /* mobilní zařízení (ty ještě někdo používá na web?) */
   @media screen and (max-width: 768px) {
     .services {
       flex-direction: column;
@@ -86,15 +115,37 @@
       margin: 5px 0;
       display: flexbox;
     }
+
+    .imgsrc3 {
+      width: 95%;
+    }
+
   }
   
+  /* hýbnutí absolutního loga na mobilech aby nepřekrývalo text */
+  @media screen and (max-width: 445px) {
+    .logo-container2 {
+      position: fixed;
+      bottom: 0;
+      right: 0;
+      margin: 20px; 
+      margin-bottom: 60px;
+    }
+  }
+  .imgsrc3 {
+    max-width: 600px;
+    height: auto;
+    border-radius: 5%;
+  }
+
       .services div {
         flex: 1;
         padding: 30px;
-        background-color: #444; /* pozadí černý jak člověk negroidní pleti */
+        background-color: var(--seda); /* pozadí černý jak n */
         border-radius: 8px;
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         transition: transform 0.3s ease;
+        max-width: 80%;
       }
   
       .services div:hover {
@@ -102,31 +153,32 @@
       }
   
       footer {
-        background-color: #222; /* Darker footer background */
-        color: white;
+        background-color: var(--seda-2x);
+        color: var(--bila);
         text-align: center;
         padding: 10px 0;
         width: 100%;
-        box-sizing: border-box; /* Include padding and border in width calculation */
+        box-sizing: border-box;
         position: fixed;
         bottom: 0;
-        left: 0; /* Ensure footer starts from the left */
+        left: 0;
       }
   
       .container {
-        width: 100%; /* Adjust container width to span full width */
-        max-width: 1200px; /* Set a maximum width for the content */
-        margin: 0 auto; /* Center the content horizontally */
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
         text-align: center;
-        box-sizing: border-box; /* Include padding and border in width calculation */
-        padding: 0 20px; /* Add padding to the container */
+        box-sizing: border-box;
+        padding: 0 20px;
+        margin-top: 40px;
       }
   
   
-      /* nav link, ani nevim jestli funguje */
+      /* nav link na hoře */
       nav ul li a {
         text-decoration: none;
-        color: #FFFFFF;
+        color: var(--bila);
         font-weight: bold;
         text-transform: uppercase;
         transition: color 0.3s ease, transform 0.3s ease;
@@ -138,15 +190,21 @@
         transform: translateY(-3px);
       }
       
-/* email form -*/
+.contact {
+  margin-bottom: 3px;
+}
+
+/* [AI] email form */
 #contact-container {
   max-width: 600px;
   margin: 50px auto;
   padding: 20px;
-  background-color: #252525; /* Dark background color */
+  margin-top: 25px;
+  margin-bottom: 70px;
+  background-color: var(--seda);
   border-radius: 10px;
-  box-shadow: 0 0 10px rgba(255, 255, 255, 0.1); /* Light shadow */
-  color: #ffffff; /* Light text color */
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.1); 
+  color: var(--bila); 
 }
 
 #contact-title {
@@ -162,17 +220,17 @@
 }
 
 #email-input {
-  width: calc(100% - 22px); /* Adjusted width to prevent it from extending to the right */
+  width: calc(100% - 22px);
   padding: 10px;
-  border: 1px solid #777; /* Adjusted border color */
+  border: 1px solid #777;
   border-radius: 5px;
-  background-color: #555; /* Adjusted input background color */
-  color: #fff; /* Adjusted input text color */
+  background-color: #555;
+  color: var(--bila);
 }
 
 #submit-button {
-  background-color: #007bff;
-  color: #fff;
+  background-color: var(--modra);
+  color: var(--bila);
   border: none;
   padding: 10px 20px;
   border-radius: 5px;
@@ -183,9 +241,9 @@
   background-color: #0056b3;
 }
 
-
+/* header */
     header {
-        background-color: #007bff;
+        background-color: var(--modra);
         padding: 10px;
     }
     .header-container {
@@ -194,7 +252,7 @@
         align-items: center;
     }
     .logo-container {
-        /* Optional: Adjust width if needed */
+        /* zatim nepotrebuju */
     }
     .logo-container img {
         height: 50px;
@@ -205,7 +263,7 @@
     nav a {
         font-family: 'Lato', sans-serif;
         text-decoration: none;
-        color: rgb(216, 216, 216);
+        color: var(--bila);
         margin-left: 10px;
         margin-right: 10px;
         margin-bottom: 20px;
@@ -213,34 +271,87 @@
 
 
 
-/* na absolutně pozicovaný logo ??? */
-.logo-container2 {
-    position: fixed;
-    bottom: 0;
-    right: 0;
-    margin: 20px; /* Adjust the margin as per your preference */
-}
+
 
 .logo2 {
-    width: 80px; /* Adjust the width and height as per your logo dimensions */
+    width: 80px;
     height: 80px;
+    border-radius: 10%;
 }
 
 
-/* debil na about */
+/* about textík */
 .container-3 {
   max-width: 800px;
   margin: 0 auto;
   padding: 20px;
+  margin-bottom: 50px;
 }
 
 .section-3 {
-  background-color: #252525; /* Dark background color */
-  color: #ffffff; /* Light text color */
+  background-color: var(--seda);
+  color: var(--bila);
   padding: 20px;
   margin-bottom: 20px;
   border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1); /* Light shadow */
+  box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1); /* [AI] dark shadow */
 }
 
-  
+.rain-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* [AI] */
+.raindrop {
+  position: absolute;
+  bottom: 100%;
+  width: 2px;
+  height: 20px;
+  background: rgba(255, 255, 255, 0.5);
+  animation: fall linear infinite;
+  z-index: -1;
+}
+
+
+.div2 {
+  margin-top: 30px;
+  max-height: 40%;
+}
+
+.service-pics {
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  gap: 10px;
+  width: 40%;
+  height: auto;
+}
+
+.service-pics-div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.services-toptext {
+  margin-top: 20px;
+  margin-bottom: 50px;
+  max-width: 90%;
+  margin: 10px;
+}
+
+.logo-navbar {
+  border-radius: 10%;
+}
+
+/* tohle je na raindropy */
+@keyframes fall {
+  to {
+      transform: translateY(100vh);
+  }
+}
